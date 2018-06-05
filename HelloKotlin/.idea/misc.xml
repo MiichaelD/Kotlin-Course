@@ -9,11 +9,11 @@
     </option>
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$/../barneshut" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../example" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../kmeans" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../reductions" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../scalashop" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../ParallelProgramming-Course/barneshut" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../ParallelProgramming-Course/example" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../ParallelProgramming-Course/kmeans" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../ParallelProgramming-Course/reductions" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../ParallelProgramming-Course/scalashop" value="PREVIEW" />
       </map>
     </option>
   </component>
