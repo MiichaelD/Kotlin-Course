@@ -1,7 +1,7 @@
 package aquarium
 
 fun main(args: Array<String>) {
-  buildAquarium();
+  buildAquarium()
 }
 
 fun buildAquarium() {
