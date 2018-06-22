@@ -1,4 +1,4 @@
-
+package aquarium
 
 object MobyDickWhale {
   val author = "Herman Melville"
@@ -21,7 +21,7 @@ class Walrus: Seal()
 
 fun matchSeal(seal: Seal): String {
   return when(seal) {
-    is Walrus -> "Walrus"
+    is Walrus -> "aquarium.Walrus"
     is SeaLion -> "Sea Lion"
   }
 }
