@@ -33,6 +33,12 @@ interface Grinder {
   }
 }
 
+object defaultCurryGrinder: Grinder {
+  override fun grind() {
+    println("Grinding curry")
+  }
+}
+
 interface SpiceColor {
   val color: String
 }
@@ -45,10 +51,11 @@ object  YellowSpiceColor: SpiceColor {
   override val color = "yellow"
 }
 
-class Curry(spiciness: String,
-            val grinder: Grinder,
+class Curry(name: String = "Curry",
+            spiciness: String,
+            val grinder: Grinder = defaultCurryGrinder,
             color: SpiceColor = YellowSpiceColor):
-    Spice("Curry", spiciness, color) {
+    Spice(name, spiciness, color) {
 
   override fun prepareSpice() {
     grind()
@@ -63,14 +70,11 @@ fun makeSalt() = SimpleSpice("Salt", "none")
 
 fun main(args: Array<String>) {
 
-  val curry = Curry("mild",
-      object: Grinder {override fun grind() {println("Grinding curry")}}
-  )
   val spices = listOf(
       makeSalt(),
       SimpleSpice("Bell pepper", "none"),
       SimpleSpice("Sweet pepper", "none"),
-      curry,
+      Curry(spiciness = "mild"),
       SimpleSpice("Jalapeño"),
       SimpleSpice("Chipotle"),
       SimpleSpice("Tobasco", "medium"),
