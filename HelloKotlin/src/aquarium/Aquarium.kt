@@ -24,6 +24,9 @@ open class Aquarium<out T: WaterSupply>(val waterSupply: T, var length: Int = 10
 
     println("adding water from $waterSupply")
   }
+
+  /** Needs to be inline and reified to be used in Runtime, replacing R with real type. */
+  inline fun <reified R: WaterSupply> hasWaterSupplyOfType() = waterSupply is R
 }
 
 class TowerAquarium() : Aquarium<FishStoreWater>(FishStoreWater) {
@@ -65,9 +68,23 @@ class LakeWaterCleaner: Cleaner<LakeWater> {
 
 fun addItemTo(aquarium: Aquarium<WaterSupply>) = println("item added")
 
+fun <T: WaterSupply> isWaterClean(aquarium: Aquarium<T>) {
+  println("aquarium water is clean: ${aquarium.waterSupply.needsProcessed}")
+}
+
+inline fun <reified T: WaterSupply> Aquarium<*>.hasWaterSupplyOfType2() = waterSupply is T
+
+inline fun <reified T: WaterSupply> WaterSupply.isOfType() = this is T
+
 fun genericExample() {
   val cleaner = TapWaterCleaner()
   val aquarium = Aquarium(TapWater)
   addItemTo(aquarium) // only works if T is marked as "out" to tell compiler to avoid static check
   aquarium.addWater(cleaner)
+
+  // Generic Functions
+  println("Aquarium has clean water? ${isWaterClean(aquarium)}")
+  println("Aquarium has TapWater? ${aquarium.hasWaterSupplyOfType<TapWater>()}")
+  println("Aquarium has LakeWater? ${aquarium.hasWaterSupplyOfType2<LakeWater>()}")
+  println("Aquarium has FishStoreWater? ${aquarium.waterSupply.isOfType<FishStoreWater>()}")
 }
