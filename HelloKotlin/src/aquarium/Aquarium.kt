@@ -10,7 +10,7 @@ open class Aquarium<out T: WaterSupply>(val waterSupply: T, var length: Int = 10
 
   open var water :Double = volume * 0.9
 
-  constructor(numberOfFish: Int): this() {
+  constructor(waterSupply: T, numberOfFish: Int): this(waterSupply) {
     val water: Int = numberOfFish * 2000 // cm3
     val tank:Double = water * 1.1
     height = (tank / (length * width)).toInt()
