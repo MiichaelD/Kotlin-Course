@@ -29,6 +29,22 @@ fun fishExamples() {
       .let{it + 30})
 }
 
-fun myWith(name: String, block: String.() -> Unit) {
+/**
+ * Making this function inline avoids creating an instance of a lambda everytime this
+ * function is invoked, but instead replacing the contents of the function where it is
+ * being called.
+ *
+ * i.e.
+ * myWith(fish.name, object: Function1<String, Unit> {
+ *    override fun invoke(name: String) {
+ *      name.capitalize()
+ *    }
+ * })
+ *
+ * Gets replaced as:
+ * fish.capitalize()
+ *
+ */
+inline fun myWith(name: String, block: String.() -> Unit) {
   name.block()
 }
