@@ -1,4 +1,4 @@
-package Functional
+package functional
 
 fun List<Int>.divisibleBy(block:(Int) -> Int): List<Int> {
   val result = mutableListOf<Int>()
