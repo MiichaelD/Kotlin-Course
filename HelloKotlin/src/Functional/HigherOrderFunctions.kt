@@ -1,4 +1,4 @@
-package Functional
+package functional
 
 data class Fish(var name: String)
 
@@ -30,7 +30,7 @@ fun fishExamples() {
 }
 
 /**
- * Making this function inline avoids creating an instance of a lambda everytime this
+ * Making this function inline avoids creating an instance of a lambda every time this
  * function is invoked, but instead replacing the contents of the function where it is
  * being called.
  *
